@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 
 function DialPad() {
   const [number, setNumber] = useState("");
@@ -7,6 +7,11 @@ function DialPad() {
   function handlePress(value) {
     setNumber(number + value);
   }
+
+  function handleDelete() {
+    setNumber(number.slice(0, -1));
+  }
+
 
   return (
     <View style={styles.container}>
@@ -77,9 +82,9 @@ function DialPad() {
 
         <TouchableOpacity
           style={styles.button}
-          onPress={() => handlePress("*")}
+          onPress={() => handlePress("+")}
         >
-          <Text style={styles.label}>*</Text>
+          <Text style={styles.label}>+</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -100,9 +105,21 @@ function DialPad() {
           style={styles.buttonn}
           onPress={() => handlePress("")}
         >
-          <Text style={styles.label}></Text>
+          <Image
+            source={require("./assets/Vector.png")}
+            style={{ width: 50, height: 50 }}
+          />
         </TouchableOpacity>
 
+        <TouchableOpacity
+          style={styles.delbutton}
+          onPress={() => handleDelete("")}
+        >
+          <Image
+            source={require("./assets/left_arrow.png")}
+            style={{ width: 40, height: 40 }}
+          />
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -141,6 +158,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#00ff00",
   },
+  delbutton: {
+    width: 90,
+    height: 90,
+    margin: 10,
+    borderRadius: 50,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#ff0000",
+  },
+
   label: {
     fontSize: 32,
   },
