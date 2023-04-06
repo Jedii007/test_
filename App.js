@@ -117,7 +117,7 @@ function DialPad() {
         >
           <Image
             source={require("./assets/left_arrow.png")}
-            style={{ width: 40, height: 40 }}
+            style={{ width: 38, height: 28 }}
           />
         </TouchableOpacity>
       </View>
@@ -166,6 +166,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#ff0000",
+    // backgroundColor: "#eee",
   },
 
   label: {
